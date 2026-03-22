@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX — Transform Your Body, Elevate Your Mind</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g: #39FF14;
+  --o: #FF6B00;
+  --c: #00F5FF;
+  --dark: #07090E;
+  --dark2: #0C1018;
+  --dark3: #131923;
+  --border: rgba(255,255,255,0.07);
+  --muted: #5A6880;
+  --text: #DDE3EF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+button{cursor:pointer}
+img{display:block}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 52px;
+  background:rgba(7,9,14,0.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:6px;
+  background:linear-gradient(90deg,var(--g),var(--o));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--g)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-login{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);background:none;border:none;transition:color .2s}
+.nav-login:hover{color:var(--text)}
+.nav-cta{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;background:var(--g);color:#000;
+  padding:10px 24px;border:none;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--o);transform:translateY(-1px)}
+
+/* ── TICKER ── */
+.ticker{
+  margin-top:69px;padding:7px 0;overflow:hidden;
+  background:linear-gradient(90deg,var(--g),var(--o),var(--c),var(--g));
+  background-size:300% 100%;animation:tbg 5s linear infinite;
+}
+@keyframes tbg{0%{background-position:0%}100%{background-position:100%}}
+.ticker-track{display:flex;gap:60px;animation:scrollL 35s linear infinite;white-space:nowrap}
+@keyframes scrollL{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:#000;flex-shrink:0}
+
+/* ── HERO — FULL SPLIT ── */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:calc(100vh - 90px);
+  position:relative;
+}
+/* left panel */
+.hero-left{
+  position:relative;display:flex;flex-direction:column;justify-content:center;
+  padding:80px 60px 80px 52px;
+  background:var(--dark2);
+  z-index:1;
+}
+.hero-left::after{
+  content:'';position:absolute;right:-1px;top:0;bottom:0;width:60px;
+  background:linear-gradient(to right,var(--dark2),transparent);
+  z-index:2;pointer-events:none;
+}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:5px;text-transform:uppercase;color:var(--g);
+  display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--g)}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,7vw,112px);
+  line-height:.9;letter-spacing:2px;margin-bottom:28px}
+.hero h1 em{font-style:normal;
+  background:linear-gradient(135deg,var(--g),var(--o));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;
+  max-width:400px;margin-bottom:40px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.btn-solid{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  background:linear-gradient(90deg,var(--g),var(--o));color:#000;
+  padding:13px 30px;border:none;
+  clip-path:polygon(9px 0%,100% 0%,calc(100% - 9px) 100%,0% 100%);
+  transition:opacity .2s,transform .15s}
+.btn-solid:hover{opacity:.84;transform:translateY(-2px)}
+.btn-outline{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--text);
+  background:none;border:1px solid var(--border);padding:13px 30px;
+  clip-path:polygon(9px 0%,100% 0%,calc(100% - 9px) 100%,0% 100%);
+  transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--c);color:var(--c)}
+.hero-kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;
+  background:var(--border);border-top:1px solid var(--border)}
+.hero-kpi{padding:20px 16px;background:var(--dark2)}
+.kpi-val{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--g)}
+.kpi-lbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+/* right panel — stacked images */
+.hero-right{position:relative;overflow:hidden;background:#000}
+.hero-right canvas{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.hero-img-main{width:100%;height:100%;object-fit:cover;object-position:center 20%;
+  filter:brightness(.45) saturate(1.3);transition:filter 6s ease}
+.hero-img-main:hover{filter:brightness(.55) saturate(1.4)}
+.hero-right-overlay{
+  position:absolute;inset:0;z-index:3;
+  background:linear-gradient(to right,rgba(12,16,24,0.6) 0%,transparent 40%),
+             linear-gradient(to top,rgba(7,9,14,.9) 0%,transparent 40%);
+}
+.hero-float-card{
+  position:absolute;bottom:40px;right:32px;z-index:4;
+  background:rgba(7,9,14,.82);backdrop-filter:blur(16px);
+  border:1px solid var(--border);
+  padding:18px 22px;min-width:200px;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.float-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.float-stat{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--g);
+  letter-spacing:1px;line-height:1;text-shadow:0 0 20px rgba(57,255,20,.3)}
+.float-sub{font-size:11px;color:var(--muted);margin-top:4px}
+.live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--g);box-shadow:0 0 6px var(--g);margin-right:5px;
+  animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── SECTION COMMONS ── */
+.sec{padding:88px 52px}
+.sec-inner{max-width:1320px;margin:0 auto}
+.tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+.h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4.5vw,62px);
+  line-height:1;letter-spacing:2px;margin-bottom:12px}
+.sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;max-width:500px}
+.hr{height:1px;background:linear-gradient(90deg,transparent,var(--g),transparent);
+  opacity:.2;margin:0 52px}
+
+/* ── FEATURES BENTO (new arrangement) ── */
+#features{background:var(--dark2)}
+.bento{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:52px}
+
+.bcard{background:rgba(255,255,255,.025);border:1px solid var(--border);
+  position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.bcard:hover{border-color:rgba(57,255,20,.28);transform:translateY(-3px)}
+.bcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--g),var(--o));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.bcard:hover::before{transform:scaleX(1)}
+
+/* big card left col — spans 2 rows */
+.bcard-big{grid-column:1;grid-row:1/3;padding:0;display:flex;flex-direction:column}
+.bcard-big-img{flex:1;overflow:hidden;min-height:280px}
+.bcard-big-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(1.2);
+  transition:transform .5s,filter .5s}
+.bcard-big:hover .bcard-big-img img{transform:scale(1.04);filter:brightness(.45) saturate(1.4)}
+.bcard-big-body{padding:28px}
+
+/* normal cards */
+.bcard-sm{padding:28px}
+/* tall image card */
+.bcard-img{padding:0;display:flex;flex-direction:column}
+.bcard-img-top{overflow:hidden;height:180px}
+.bcard-img-top img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(1.2);
+  transition:transform .5s,filter .5s}
+.bcard-img:hover .bcard-img-top img{transform:scale(1.05);filter:brightness(.4)}
+.bcard-img-body{padding:22px 24px}
+
+.bc-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--o);margin-bottom:6px}
+.bc-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;margin-bottom:8px}
+.bc-body{font-size:13px;color:var(--muted);line-height:1.65}
+.cdot{display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--g);box-shadow:0 0 6px var(--g);animation:blink 1.5s infinite;margin-right:6px}
+
+/* rings mini */
+.rings-mini{display:flex;justify-content:center;align-items:center;position:relative;height:130px;margin:16px 0}
+.rsvg{position:absolute}
+
+/* metric rows */
+.mrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mlbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.mval{font-family:'Bebas Neue',sans-serif;font-size:22px}
+.mbar{height:3px;background:rgba(255,255,255,.06);margin-bottom:16px;position:relative;overflow:visible}
+.mfill{height:100%;position:relative;animation:mfill 2s ease forwards}
+@keyframes mfill{from{width:0}}
+.mfill::after{content:'';position:absolute;right:0;top:-2px;
+  width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
+
+/* ── WORKOUTS — HORIZONTAL SCROLL ── */
+#workouts{background:var(--dark);overflow:hidden}
+.wscroll-wrap{position:relative;margin-top:48px}
+.wscroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;
+  -ms-overflow-style:none;scrollbar-width:none}
+.wscroll::-webkit-scrollbar{display:none}
+.wcard{flex:0 0 300px;height:400px;position:relative;overflow:hidden;
+  border:1px solid var(--border);scroll-snap-align:start;
+  transition:border-color .3s}
+.wcard:hover{border-color:rgba(57,255,20,.5)}
+.wcard img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(1.1);
+  transition:transform .5s,filter .5s}
+.wcard:hover img{transform:scale(1.07);filter:brightness(.38) saturate(1.4)}
+.wcard-overlay{position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(7,9,14,.97) 0%,rgba(7,9,14,.2) 55%,transparent 100%);
+  padding:22px;display:flex;flex-direction:column;justify-content:flex-end}
+.wcard-hover{position:absolute;inset:0;background:rgba(7,9,14,.88);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;opacity:0;transition:opacity .3s;padding:24px;text-align:center}
+.wcard:hover .wcard-hover{opacity:1}
+.wcard-emo{font-size:40px;animation:wbounce .55s infinite alternate}
+@keyframes wbounce{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+.wcard-steps{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.5px;color:var(--g);line-height:1.75}
+.wcta{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  background:var(--g);color:#000;border:none;padding:9px 20px;margin-top:4px;
+  transition:background .2s}
+.wcta:hover{background:var(--o)}
+.wcat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--o);margin-bottom:4px}
+.wname{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px}
+.wmeta{font-size:11px;color:rgba(221,227,239,.55);margin-top:4px;display:flex;gap:12px}
+.scroll-hint{display:flex;align-items:center;gap:6px;margin-top:16px;
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.scroll-arrow{animation:sarrow 1.5s infinite}
+@keyframes sarrow{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+
+/* ── AI TRAINER SPLIT ── */
+#ai{background:var(--dark2)}
+.ai-split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:52px;
+  border:1px solid var(--border)}
+.ai-img-panel{position:relative;overflow:hidden;min-height:520px}
+.ai-img-panel img{width:100%;height:100%;object-fit:cover;filter:brightness(.38) saturate(1.2)}
+.ai-img-overlay{position:absolute;inset:0;
+  background:linear-gradient(to right,transparent 50%,var(--dark2) 100%),
+             linear-gradient(to top,rgba(7,9,14,.8) 0%,transparent 50%)}
+.ai-img-badges{position:absolute;bottom:32px;left:28px;display:flex;flex-direction:column;gap:10px}
+.ai-badge-chip{display:flex;align-items:center;gap:10px;padding:10px 14px;
+  background:rgba(7,9,14,.8);backdrop-filter:blur(10px);border:1px solid var(--border);
+  clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
+.chip-icon{font-size:16px}
+.chip-text{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px}
+.chip-val{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--g);letter-spacing:1px}
+.ai-chat-panel{padding:36px;display:flex;flex-direction:column;gap:20px;background:var(--dark3)}
+.chat-header{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--c);
+  display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.chat-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px}
+.chat-msgs{display:flex;flex-direction:column;gap:10px;
+  height:260px;overflow-y:auto;padding-right:4px}
+.chat-msgs::-webkit-scrollbar{width:3px}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--g)}
+.msg{max-width:84%;padding:10px 14px;font-size:13px;line-height:1.5}
+.msg-b{background:rgba(57,255,20,.07);border-left:2px solid var(--g);align-self:flex-start}
+.msg-u{background:rgba(255,107,0,.07);border-right:2px solid var(--o);align-self:flex-end;text-align:right}
+.chat-row{display:flex;gap:8px;margin-top:4px}
+.chat-inp{flex:1;background:rgba(255,255,255,.04);border:1px solid var(--border);
+  color:var(--text);font-family:'Barlow',sans-serif;font-size:13px;
+  padding:10px 14px;outline:none;transition:border-color .2s}
+.chat-inp:focus{border-color:var(--g)}
+.chat-btn{background:var(--g);color:#000;border:none;padding:10px 18px;
+  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:1px;transition:background .2s}
+.chat-btn:hover{background:var(--o)}
+.suggestions-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.sugg-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sugg{padding:10px 12px;background:rgba(0,245,255,.03);
+  border:1px solid rgba(0,245,255,.08);
+  transition:background .2s,border-color .2s;cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.sugg:hover{background:rgba(0,245,255,.08);border-color:rgba(0,245,255,.25)}
+.sugg-ico{font-size:16px;margin-top:1px}
+.sugg-n{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600}
+.sugg-d{font-size:11px;color:var(--muted);margin-top:1px}
+
+/* ── SHOP — MASONRY-ISH ── */
+#shop{background:var(--dark)}
+.shop-layout{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:16px;margin-top:52px;align-items:start}
+.pcard{background:rgba(255,255,255,.025);border:1px solid var(--border);
+  overflow:hidden;position:relative;transition:transform .35s,border-color .3s}
+.pcard:hover{transform:translateY(-6px);border-color:rgba(57,255,20,.38)}
+.pcard:hover .pglow{opacity:1}
+.pglow{position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(57,255,20,.11) 0%,transparent 60%);
+  opacity:0;transition:opacity .35s;pointer-events:none;z-index:1}
+.pcard-hero{grid-column:1;grid-row:1}
+.pimg{overflow:hidden;position:relative}
+.pimg img{width:100%;object-fit:cover;filter:brightness(.72) saturate(1.1);
+  transition:transform .5s,filter .5s}
+.pcard:hover .pimg img{transform:scale(1.06);filter:brightness(.6)}
+.pimg::after{content:'';position:absolute;bottom:0;left:0;right:0;
+  height:55%;background:linear-gradient(to top,var(--dark),transparent)}
+.pimg-hero{height:280px}
+.pimg-sm{height:180px}
+.pbody{padding:18px 20px;position:relative;z-index:2}
+.pcat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--o);margin-bottom:5px}
+.pname{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;margin-bottom:6px}
+.pdesc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.pfoot{display:flex;align-items:center;justify-content:space-between}
+.pprice{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--g);letter-spacing:1px}
+.pbuy{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;background:none;
+  border:1px solid var(--g);color:var(--g);padding:7px 14px;
+  transition:background .2s,color .2s}
+.pbuy:hover{background:var(--g);color:#000}
+.ar-tag{position:absolute;top:10px;right:10px;z-index:3;
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  background:var(--c);color:#000;padding:3px 8px}
+
+/* ── PROGRESS — FULL WIDTH SPLIT ── */
+#progress{background:var(--dark2);padding:0}
+.prog-layout{display:grid;grid-template-columns:1fr 1fr}
+.prog-left{padding:80px 52px;display:flex;flex-direction:column;gap:32px}
+.prog-right{position:relative;overflow:hidden;min-height:600px}
+.prog-right img{width:100%;height:100%;object-fit:cover;filter:brightness(.32) saturate(1.2)}
+.prog-right-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to left,transparent 30%,var(--dark2) 80%)}
+.prog-right-content{position:absolute;inset:0;padding:60px 40px;
+  display:flex;flex-direction:column;justify-content:center}
+
+.holo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.holo-cell{padding:20px;background:rgba(0,245,255,.03);border:1px solid rgba(0,245,255,.08)}
+.hv{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--c);
+  text-shadow:0 0 20px rgba(0,245,255,.35);letter-spacing:1px}
+.hu{font-size:12px;color:var(--muted);margin-left:3px}
+.hl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+.streak-row{display:flex;gap:5px;flex-wrap:wrap}
+.sdot{width:13px;height:13px;background:rgba(57,255,20,.1);border:1px solid rgba(57,255,20,.12)}
+.sdot.on{background:var(--g);box-shadow:0 0 7px var(--g)}
+
+.pbar-wrap{display:flex;flex-direction:column;gap:16px}
+.pbar-lbl{display:flex;justify-content:space-between;
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.ptrack{height:4px;background:rgba(255,255,255,.05);overflow:hidden}
+.pfill{height:100%;animation:pf 2.5s ease forwards}
+@keyframes pf{from{width:0}}
+
+/* ── BADGES SECTION ── */
+#badges{background:var(--dark)}
+.badges-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+.badge-card{background:rgba(255,255,255,.025);border:1px solid var(--border);
+  padding:28px;text-align:center;position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s}
+.badge-card:hover{border-color:rgba(255,107,0,.4);transform:translateY(-4px)}
+.badge-glow{position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,107,0,.08) 0%,transparent 60%);
+  opacity:0;transition:opacity .3s;pointer-events:none}
+.badge-card:hover .badge-glow{opacity:1}
+.badge-ico{font-size:48px;margin-bottom:14px;
+  filter:drop-shadow(0 0 12px rgba(255,107,0,.4));display:block}
+.badge-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;
+  color:var(--o);margin-bottom:6px}
+.badge-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.badge-xp{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--g);padding:5px 12px;
+  border:1px solid rgba(57,255,20,.25);display:inline-block}
+.badge-card.locked{opacity:.38;border-style:dashed}
+.badge-card.locked .badge-ico{filter:none;opacity:.5}
+.badge-card.locked .badge-name{color:var(--muted)}
+.badge-card.locked .badge-xp{color:var(--muted);border-color:var(--border)}
+
+/* ── CTA BANNER ── */
+.cta-banner{
+  position:relative;overflow:hidden;
+  padding:100px 52px;text-align:center;
+}
+.cta-bg{position:absolute;inset:0;z-index:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.18) saturate(1.4)}
+.cta-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(57,255,20,.08),rgba(255,107,0,.06))}
+.cta-content{position:relative;z-index:1}
+.cta-content h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7vw,96px);
+  letter-spacing:2px;line-height:.92;margin-bottom:20px}
+.cta-content h2 span{
+  background:linear-gradient(135deg,var(--g),var(--o));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cta-content p{font-size:16px;color:var(--muted);max-width:480px;margin:0 auto 36px;line-height:1.7}
+
+/* ── FOOTER ── */
+footer{background:var(--dark2);border-top:1px solid var(--border);
+  padding:36px 52px;display:flex;align-items:center;justify-content:space-between}
+.flogo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:5px;
+  background:linear-gradient(90deg,var(--g),var(--o));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.fcopy{font-size:12px;color:var(--muted)}
+.flinks{display:flex;gap:22px}
+.flinks a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--g)}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rev.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:1024px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:60px 20px}
+  .sec{padding:60px 20px}
+  .bento{grid-template-columns:1fr;grid-template-rows:auto}
+  .bcard-big{grid-column:1;grid-row:auto}
+  .ai-split{grid-template-columns:1fr}
+  .ai-img-panel{min-height:280px}
+  .shop-layout{grid-template-columns:1fr 1fr}
+  .prog-layout{grid-template-columns:1fr}
+  .prog-right{min-height:300px}
+  .badges-grid{grid-template-columns:1fr 1fr}
+  .hr{margin:0 20px}
+  footer{flex-direction:column;gap:16px;text-align:center}
+  .sugg-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">APEX</div>
+  <ul class="nav-links">
+    <li><a href="#features">Dashboard</a></li>
+    <li><a href="#workouts">Workouts</a></li>
+    <li><a href="#ai">AI Trainer</a></li>
+    <li><a href="#shop">Nutrition</a></li>
+    <li><a href="#progress">Progress</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-login">Log In</button>
+    <button class="nav-cta">Start Free</button>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-track" id="ttrack"></div></div>
+
+<!-- ═══ HERO — SPLIT ═══ -->
+<section class="hero" id="home">
+  <!-- LEFT: Copy + KPIs -->
+  <div class="hero-left">
+    <div class="hero-eyebrow">Elite Performance Platform</div>
+    <h1>TRANSFORM<br>YOUR BODY,<br><em>ELEVATE</em><br>YOUR MIND.</h1>
+    <p class="hero-sub">Science-backed training, AI-powered coaching, and live biometric sync — built for athletes who refuse limits.</p>
+    <div class="hero-btns">
+      <button class="btn-solid">Start Training Free</button>
+      <button class="btn-outline">Explore Plans</button>
+    </div>
+    <div class="hero-kpis">
+      <div class="hero-kpi"><div class="kpi-val" id="calStat">1,245,678</div><div class="kpi-lbl">Calories Burned Today</div></div>
+      <div class="hero-kpi"><div class="kpi-val">48,230</div><div class="kpi-lbl">Active Members</div></div>
+      <div class="hero-kpi"><div class="kpi-val">99.4%</div><div class="kpi-lbl">Goal Rate</div></div>
+    </div>
+  </div>
+  <!-- RIGHT: Hero photo -->
+  <div class="hero-right">
+    <img class="hero-img-main"
+      src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&q=85&auto=format&fit=crop"
+      alt="Elite athlete training" />
+    <canvas id="wc"></canvas>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-float-card">
+      <div class="float-label"><span class="live-dot"></span>Live Community Burn</div>
+      <div class="float-stat" id="liveStat">1,245,678</div>
+      <div class="float-sub">calories burned today globally</div>
+    </div>
+  </div>
+</section>
+<div class="hr"></div>
+
+<!-- ═══ FEATURES BENTO ═══ -->
+<section class="sec" id="features">
+  <div class="sec-inner">
+    <div class="tag">Live Dashboard</div>
+    <h2 class="h2">Your Command Center</h2>
+    <p class="sub">Biometrics, AI recommendations, and progress rings — all in one adaptive hub.</p>
+
+    <div class="bento rev">
+
+      <!-- BIG LEFT — AI Planner + photo -->
+      <div class="bcard bcard-big">
+        <div class="bcard-big-img">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80&auto=format&fit=crop" alt="Gym training" />
+        </div>
+        <div class="bcard-big-body">
+          <div class="bc-tag"><span class="cdot"></span>AI Workout Planner</div>
+          <div class="bc-title">This Week's Program</div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:8px">
+            <div style="display:flex;align-items:center;gap:11px;padding:10px 13px;background:rgba(57,255,20,.04);border:1px solid rgba(57,255,20,.1)">
+              <span style="font-size:16px">🏋️</span>
+              <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600">Upper Body Strength</div><div style="font-size:11px;color:var(--muted)">45 min · 380 kcal</div></div>
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;background:var(--o);color:#000;padding:3px 7px">TODAY</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:11px;padding:10px 13px;background:rgba(57,255,20,.04);border:1px solid rgba(57,255,20,.1)">
+              <span style="font-size:16px">🏃</span>
+              <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600">HIIT Sprint Circuit</div><div style="font-size:11px;color:var(--muted)">28 min · 520 kcal</div></div>
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;background:rgba(255,107,0,.15);color:var(--o);padding:3px 7px">THU</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:11px;padding:10px 13px;background:rgba(57,255,20,.04);border:1px solid rgba(57,255,20,.1)">
+              <span style="font-size:16px">🧘</span>
+              <div style="flex:1"><div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600">Zen Recovery Flow</div><div style="font-size:11px;color:var(--muted)">35 min · 130 kcal</div></div>
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;background:rgba(0,245,255,.15);color:var(--c);padding:3px 7px">SAT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOP MID — Fitness Rings -->
+      <div class="bcard bcard-sm">
+        <div class="bc-tag"><span class="cdot"></span>Fitness Rings</div>
+        <div class="rings-mini">
+          <svg class="rsvg" width="130" height="130" viewBox="0 0 130 130">
+            <circle cx="65" cy="65" r="58" fill="none" stroke="rgba(57,255,20,.1)" stroke-width="9"/>
+            <circle cx="65" cy="65" r="58" fill="none" stroke="url(#rg1)" stroke-width="9" stroke-dasharray="364" stroke-dashoffset="87" stroke-linecap="round" transform="rotate(-90 65 65)"/>
+            <defs><linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#39FF14"/><stop offset="100%" stop-color="#00F5FF"/></linearGradient></defs>
+          </svg>
+          <svg class="rsvg" width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="43" fill="none" stroke="rgba(255,107,0,.1)" stroke-width="9"/>
+            <circle cx="50" cy="50" r="43" fill="none" stroke="url(#rg2)" stroke-width="9" stroke-dasharray="270" stroke-dashoffset="54" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+            <defs><linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FF6B00"/><stop offset="100%" stop-color="#FFD700"/></linearGradient></defs>
+          </svg>
+          <svg class="rsvg" width="70" height="70" viewBox="0 0 70 70">
+            <circle cx="35" cy="35" r="28" fill="none" stroke="rgba(0,245,255,.1)" stroke-width="9"/>
+            <circle cx="35" cy="35" r="28" fill="none" stroke="url(#rg3)" stroke-width="9" stroke-dasharray="176" stroke-dashoffset="44" stroke-linecap="round" transform="rotate(-90 35 35)"/>
+            <defs><linearGradient id="rg3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F5FF"/><stop offset="100%" stop-color="#9B59B6"/></linearGradient></defs>
+          </svg>
+          <div style="text-align:center;z-index:1"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g)">76%</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Overall</div></div>
+        </div>
+        <div style="display:flex;justify-content:space-between">
+          <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--g)">76%</div><div style="font-size:9px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase">Move</div></div>
+          <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--o)">89%</div><div style="font-size:9px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase">Burn</div></div>
+          <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--c)">62%</div><div style="font-size:9px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase">Stand</div></div>
+        </div>
+      </div>
+
+      <!-- TOP RIGHT — Smartwatch + image -->
+      <div class="bcard bcard-img">
+        <div class="bcard-img-top">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80&auto=format&fit=crop" alt="Smartwatch" />
+        </div>
+        <div class="bcard-img-body">
+          <div class="bc-tag"><span class="cdot" style="background:var(--c);box-shadow:0 0 6px var(--c)"></span>Smartwatch Sync</div>
+          <div class="mrow"><span class="mlbl">Steps</span><span class="mval" style="color:var(--g)">9,841</span></div>
+          <div class="mbar"><div class="mfill" style="width:78%;background:linear-gradient(90deg,var(--g),var(--c))"></div></div>
+          <div class="mrow"><span class="mlbl">Heart Rate</span><span class="mval" style="color:var(--o)">72 bpm</span></div>
+          <div class="mbar"><div class="mfill" style="width:52%;background:linear-gradient(90deg,var(--o),#FFD700)"></div></div>
+          <div class="mrow"><span class="mlbl">SpO₂</span><span class="mval" style="color:var(--c)">98%</span></div>
+          <div class="mbar" style="margin-bottom:0"><div class="mfill" style="width:93%;background:linear-gradient(90deg,var(--c),#9B59B6)"></div></div>
+        </div>
+      </div>
+
+    </div><!-- /bento -->
+  </div>
+</section>
+<div class="hr"></div>
+
+<!-- ═══ WORKOUTS — HORIZONTAL SCROLL ═══ -->
+<section class="sec" id="workouts">
+  <div class="sec-inner">
+    <div class="tag">Workout Library</div>
+    <h2 class="h2">3,000+ Elite Workouts</h2>
+    <p class="sub">Hover any card to preview the exercise. Scroll to explore the full library.</p>
+    <div class="wscroll-wrap rev">
+      <div class="wscroll" id="wscroll">
+
+        <div class="wcard">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&auto=format&fit=crop" alt="Power Lifting"/>
+          <div class="wcard-overlay"><div class="wcat">Strength</div><div class="wname">Power Lifting Pro</div><div class="wmeta"><span>52 min</span><span>Advanced</span><span>650 kcal</span></div></div>
+          <div class="wcard-hover"><div class="wcard-emo">🏋️</div><div class="wcard-steps">SQUAT → DEADLIFT<br>BENCH PRESS → REST 90s<br>4 SETS · Progressive Overload</div><button class="wcta">Start Now</button></div>
+        </div>
+
+        <div class="wcard">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&auto=format&fit=crop" alt="HIIT"/>
+          <div class="wcard-overlay"><div class="wcat" style="color:var(--o)">HIIT</div><div class="wname">Inferno Circuit</div><div class="wmeta"><span>28 min</span><span>Expert</span><span>820 kcal</span></div></div>
+          <div class="wcard-hover"><div class="wcard-emo">🔥</div><div class="wcard-steps">BURPEE × 20 → SPRINT 30s<br>BOX JUMP × 15 → PLANK 1min<br>Zero rest between rounds</div><button class="wcta" style="background:var(--o)">Start Now</button></div>
+        </div>
+
+        <div class="wcard">
+          <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80&auto=format&fit=crop" alt="Yoga"/>
+          <div class="wcard-overlay"><div class="wcat" style="color:var(--c)">Mobility</div><div class="wname">Zen Flow Recovery</div><div class="wmeta"><span>35 min</span><span>All Levels</span><span>140 kcal</span></div></div>
+          <div class="wcard-hover"><div class="wcard-emo">🌊</div><div class="wcard-steps">CHILD'S POSE → CAT-COW<br>PIGEON → WARRIOR II<br>Breathwork & mindfulness</div><button class="wcta" style="background:var(--c)">Start Now</button></div>
+        </div>
+
+        <div class="wcard">
+          <img src="https://images.unsplash.com/photo-1544919982-b61976f0ba43?w=600&q=80&auto=format&fit=crop" alt="Boxing"/>
+          <div class="wcard-overlay"><div class="wcat" style="color:#FFD700">Combat</div><div class="wname">Boxing Cardio Blast</div><div class="wmeta"><span>40 min</span><span>Intermediate</span><span>700 kcal</span></div></div>
+          <div class="wcard-hover"><div class="wcard-emo">🥊</div><div class="wcard-steps">JAB-CROSS × 30 → HOOK × 20<br>UPPERCUT × 15 → FOOTWORK<br>Shadow boxing combos</div><button class="wcta" style="background:#FFD700">Start Now</button></div>
+        </div>
+
+        <div class="wcard">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Cycling"/>
+          <div class="wcard-overlay"><div class="wcat" style="color:#9B59B6">Cardio</div><div class="wname">Endurance Cycling</div><div class="wmeta"><span>60 min</span><span>Moderate</span><span>540 kcal</span></div></div>
+          <div class="wcard-hover"><div class="wcard-emo">🚴</div><div class="wcard-steps">WARM UP 10min → 90rpm<br>INTERVAL HILLS × 6<br>Cool down & stretch</div><button class="wcta" style="background:#9B59B6;color:#fff">Start Now</button></div>
+        </div>
+
+        <div class="wcard">
+          <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a04?w=600&q=80&auto=format&fit=crop" alt="Calisthenics"/>
+          <div class="wcard-overlay"><div class="wcat">Calisthenics</div><div class="wname">Bodyweight Mastery</div><div class="wmeta"><span>45 min</span><span>Advanced</span><span>480 kcal</span></div></div>
+          <div class="wcard-hover"><div class="wcard-emo">🤸</div><div class="wcard-steps">MUSCLE-UP → PISTOL SQUAT<br>HANDSTAND PUSH-UP × 10<br>L-SIT hold 30s</div><button class="wcta">Start Now</button></div>
+        </div>
+
+        <div class="wcard">
+          <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=600&q=80&auto=format&fit=crop" alt="Running"/>
+          <div class="wcard-overlay"><div class="wcat" style="color:var(--g)">Endurance</div><div class="wname">5K Speed Builder</div><div class="wmeta"><span>38 min</span><span>Intermediate</span><span>460 kcal</span></div></div>
+          <div class="wcard-hover"><div class="wcard-emo">🏃</div><div class="wcard-steps">WARM UP 5min → TEMPO RUN<br>FARTLEK INTERVALS × 5<br>Cool down jog 5min</div><button class="wcta" style="background:var(--g)">Start Now</button></div>
+        </div>
+
+      </div>
+      <div class="scroll-hint"><span class="scroll-arrow">→</span> Scroll to explore more workouts</div>
+    </div>
+  </div>
+</section>
+<div class="hr"></div>
+
+<!-- ═══ AI TRAINER SPLIT ═══ -->
+<section class="sec" id="ai" style="padding:0">
+  <div class="ai-split rev">
+    <!-- LEFT: athlete photo with overlay badges -->
+    <div class="ai-img-panel">
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&q=85&auto=format&fit=crop" alt="AI Trainer" />
+      <div class="ai-img-overlay"></div>
+      <div class="ai-img-badges">
+        <div class="ai-badge-chip"><span class="chip-icon">⚡</span><div><div class="chip-text">Today's Burn</div><div class="chip-val">1,847 kcal</div></div></div>
+        <div class="ai-badge-chip"><span class="chip-icon">❤️</span><div><div class="chip-text">Avg Heart Rate</div><div class="chip-val">72 bpm</div></div></div>
+        <div class="ai-badge-chip"><span class="chip-icon">🔥</span><div><div class="chip-text">Streak</div><div class="chip-val">23 days</div></div></div>
+      </div>
+    </div>
+    <!-- RIGHT: chat + suggestions -->
+    <div class="ai-chat-panel">
+      <div>
+        <div class="tag">AI Personal Trainer</div>
+        <h2 class="h2" style="margin-bottom:8px">Your Coach,<br>Always On</h2>
+        <p class="chat-desc">Tell your AI trainer your goals and get a fully personalized plan — adjusted weekly based on your biometrics.</p>
+      </div>
+      <div>
+        <div class="chat-header">🤖 APEX AI · Online</div>
+        <div class="chat-msgs" id="cmsgs">
+          <div class="msg msg-b">Hey! I'm your AI trainer. What's your main goal — fat loss, muscle gain, or endurance? 💪</div>
+          <div class="msg msg-u">Lose fat and build core strength</div>
+          <div class="msg msg-b">Perfect combo! Based on your biometrics I recommend 3× HIIT + 2× core strength. Want me to schedule this week?</div>
+          <div class="msg msg-u">Yes, include recovery days too</div>
+          <div class="msg msg-b">Done! Mon/Wed/Fri HIIT · Tue/Thu Core · Sat Yoga · Sun rest. Starting Monday 7AM. 🔥</div>
+        </div>
+        <div class="chat-row">
+          <input class="chat-inp" id="cinp" type="text" placeholder="Ask your AI trainer…" />
+          <button class="chat-btn" onclick="sendMsg()">Send</button>
+        </div>
+      </div>
+      <div>
+        <div class="suggestions-label" style="margin-bottom:10px">Suggested For You</div>
+        <div class="sugg-grid">
+          <div class="sugg"><div class="sugg-ico">⚡</div><div><div class="sugg-n">Morning HIIT Blast</div><div class="sugg-d">28 min · 650+ kcal</div></div></div>
+          <div class="sugg"><div class="sugg-ico">🎯</div><div><div class="sugg-n">Core Crusher</div><div class="sugg-d">6-week program</div></div></div>
+          <div class="sugg"><div class="sugg-ico">🌿</div><div><div class="sugg-n">Recovery Flow</div><div class="sugg-d">30 min · mobility</div></div></div>
+          <div class="sugg"><div class="sugg-ico">🏆</div><div><div class="sugg-n">12-Week Transform</div><div class="sugg-d">Full program + meals</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="hr"></div>
+
+<!-- ═══ NUTRITION SHOP ═══ -->
+<section class="sec" id="shop">
+  <div class="sec-inner">
+    <div class="tag">Nutrition Shop</div>
+    <h2 class="h2">Fuel Your Performance</h2>
+    <p class="sub">Premium supplements with AR preview. Rotate and inspect before you buy.</p>
+    <div class="shop-layout rev">
+
+      <!-- Hero product — bigger -->
+      <div class="pcard pcard-hero">
+        <div class="pglow"></div>
+        <div class="ar-tag">AR View</div>
+        <div class="pimg pimg-hero">
+          <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80&auto=format&fit=crop" alt="Whey Protein" />
+        </div>
+        <div class="pbody">
+          <div class="pcat">⭐ Best Seller · Protein</div>
+          <div class="pname">Apex Whey Ultra</div>
+          <div class="pdesc">25g protein per serving. Cold-filtered CFM isolate. Zero sugar. Fuels recovery in 30 minutes — trusted by 50,000+ athletes.</div>
+          <div class="pfoot"><span class="pprice">$54</span><button class="pbuy">Add to Cart</button></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pglow"></div>
+        <div class="ar-tag">AR View</div>
+        <div class="pimg pimg-sm">
+          <img src="https://images.unsplash.com/photo-1526401485004-46910ecc8e51?w=400&q=80&auto=format&fit=crop" alt="Pre Workout" />
+        </div>
+        <div class="pbody">
+          <div class="pcat">Pre-Workout</div>
+          <div class="pname">NitroFire X</div>
+          <div class="pdesc">200mg caffeine, Beta-alanine, Citrulline. Maximum pump & laser focus.</div>
+          <div class="pfoot"><span class="pprice">$47</span><button class="pbuy">Add</button></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pglow"></div>
+        <div class="ar-tag">AR View</div>
+        <div class="pimg pimg-sm">
+          <img src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?w=400&q=80&auto=format&fit=crop" alt="BCAAs" />
+        </div>
+        <div class="pbody">
+          <div class="pcat">Recovery</div>
+          <div class="pname">ZenRecover BCAAs</div>
+          <div class="pdesc">2:1:1 ratio + L-Glutamine. Reduces DOMS, speeds muscle repair.</div>
+          <div class="pfoot"><span class="pprice">$38</span><button class="pbuy">Add</button></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pglow"></div>
+        <div class="ar-tag">AR View</div>
+        <div class="pimg pimg-sm">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80&auto=format&fit=crop" alt="Nootropic" />
+        </div>
+        <div class="pbody">
+          <div class="pcat">Cognitive</div>
+          <div class="pname">MindForge</div>
+          <div class="pdesc">Lion's Mane, Bacopa & Rhodiola. Focus, mood, cortisol control.</div>
+          <div class="pfoot"><span class="pprice">$62</span><button class="pbuy">Add</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="hr"></div>
+
+<!-- ═══ PROGRESS — FULL WIDTH ═══ -->
+<section id="progress" style="padding:0">
+  <div class="prog-layout">
+    <!-- LEFT: Metrics -->
+    <div class="prog-left rev">
+      <div>
+        <div class="tag">Progress Tracker</div>
+        <h2 class="h2">Your Journey,<br>Visualized</h2>
+        <p class="sub" style="margin-bottom:0">Holographic metrics updated in real-time from your devices.</p>
+      </div>
+
+      <div class="holo-grid">
+        <div class="holo-cell"><div class="hv">87,430<span class="hu">kcal</span></div><div class="hl">Calories Burned</div></div>
+        <div class="holo-cell"><div class="hv" style="color:var(--o);text-shadow:0 0 20px rgba(255,107,0,.35)">+18%</div><div class="hl">Strength Gains</div></div>
+        <div class="holo-cell"><div class="hv" style="color:#FFD700;text-shadow:0 0 20px rgba(255,215,0,.35)">23<span class="hu">days</span></div><div class="hl">Current Streak</div></div>
+        <div class="holo-cell"><div class="hv" style="color:var(--g)">142<span class="hu">hrs</span></div><div class="hl">Training Time</div></div>
+      </div>
+
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">30-Day Streak</div>
+        <div class="streak-row" id="streakRow"></div>
+      </div>
+
+      <div class="pbar-wrap">
+        <div>
+          <div class="pbar-lbl"><span>Body Fat</span><span style="color:var(--g)">-3.2%</span></div>
+          <div class="ptrack"><div class="pfill" style="width:72%;background:linear-gradient(90deg,var(--g),var(--c))"></div></div>
+        </div>
+        <div>
+          <div class="pbar-lbl"><span>Muscle Mass</span><span style="color:var(--o)">+4.1 kg</span></div>
+          <div class="ptrack"><div class="pfill" style="width:61%;background:linear-gradient(90deg,var(--o),#FFD700)"></div></div>
+        </div>
+        <div>
+          <div class="pbar-lbl"><span>VO₂ Max</span><span style="color:var(--c)">48.3</span></div>
+          <div class="ptrack"><div class="pfill" style="width:83%;background:linear-gradient(90deg,var(--c),#9B59B6)"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Athlete photo -->
+    <div class="prog-right">
+      <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=900&q=85&auto=format&fit=crop" alt="Progress tracking" />
+      <div class="prog-right-overlay"></div>
+    </div>
+  </div>
+</section>
+<div class="hr"></div>
+
+<!-- ═══ BADGES ═══ -->
+<section class="sec" id="badges">
+  <div class="sec-inner">
+    <div class="tag">Achievements</div>
+    <h2 class="h2">Earn Your Legend</h2>
+    <p class="sub">Gamified milestones that reward consistency, strength, and mental resilience.</p>
+    <div class="badges-grid rev">
+      <div class="badge-card">
+        <div class="badge-glow"></div>
+        <span class="badge-ico">⚔️</span>
+        <div class="badge-name">Iron Warrior</div>
+        <div class="badge-desc">Complete 100 strength training sessions. Forged in iron, defined by grit.</div>
+        <span class="badge-xp">+500 XP · Earned</span>
+      </div>
+      <div class="badge-card">
+        <div class="badge-glow"></div>
+        <span class="badge-ico">🧘</span>
+        <div class="badge-name">Zen Master</div>
+        <div class="badge-desc">30 consecutive active recovery days. Mind and body in perfect balance.</div>
+        <span class="badge-xp">+300 XP · Earned</span>
+      </div>
+      <div class="badge-card">
+        <div class="badge-glow"></div>
+        <span class="badge-ico">🔥</span>
+        <div class="badge-name">Inferno Lord</div>
+        <div class="badge-desc">Burn 50,000 total calories. An unstoppable force of pure energy.</div>
+        <span class="badge-xp">+750 XP · Earned</span>
+      </div>
+      <div class="badge-card locked">
+        <div class="badge-glow"></div>
+        <span class="badge-ico">👑</span>
+        <div class="badge-name">Apex Legend</div>
+        <div class="badge-desc">The ultimate achievement. Only 0.3% of athletes have reached this tier.</div>
+        <span class="badge-xp">2,340 XP to unlock</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BANNER ═══ -->
+<div class="cta-banner">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=1600&q=80&auto=format&fit=crop" alt="Join APEX" />
+  </div>
+  <div class="cta-content">
+    <h2>READY TO<br><span>BECOME</span><br>ELITE?</h2>
+    <p>Join 48,000+ athletes already transforming their bodies and minds with APEX. Your first 14 days are on us.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-solid" style="font-size:14px;padding:15px 40px">Start Free Today</button>
+      <button class="btn-outline" style="font-size:14px;padding:15px 40px">See All Plans</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="flogo">APEX</div>
+  <div class="fcopy">© 2026 Apex Performance Inc. All rights reserved.</div>
+  <div class="flinks">
+    <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Support</a><a href="#">API</a>
+  </div>
+</footer>
+
+<script>
+/* WAVE CANVAS */
+const wc=document.getElementById('wc');
+const cx=wc.getContext('2d');
+let W,H,T=0;
+function rsz(){W=wc.width=wc.offsetWidth;H=wc.height=wc.offsetHeight}
+window.addEventListener('resize',rsz);rsz();
+function wave(){
+  cx.clearRect(0,0,W,H);
+  [{c:'rgba(57,255,20,.13)',a:52,f:.008,s:.022,y:.62},
+   {c:'rgba(255,107,0,.1)',a:38,f:.013,s:.03,y:.72},
+   {c:'rgba(0,245,255,.08)',a:65,f:.006,s:.016,y:.54},
+   {c:'rgba(57,255,20,.05)',a:26,f:.019,s:.038,y:.83}
+  ].forEach(w=>{
+    cx.beginPath();cx.moveTo(0,H);
+    for(let x=0;x<=W;x++)cx.lineTo(x,Math.sin(x*w.f+T*w.s)*w.a+H*w.y);
+    cx.lineTo(W,H);cx.closePath();cx.fillStyle=w.c;cx.fill();
+  });
+  T++;requestAnimationFrame(wave);
+}
+wave();
+
+/* TICKER */
+const tdata=['🔥 Community burned 1,245,000 calories today','⚡ 48,230 athletes training right now',
+  '🏆 Iron Warrior earned by 312 members','💪 94,000 pushups logged in 24 hours',
+  '🥗 Free shipping on nutrition orders $75+','🌍 Members in 147 countries','🤖 18,400 AI plans generated today'];
+const tr=document.getElementById('ttrack');
+[...tdata,...tdata].forEach(t=>{
+  const s=document.createElement('span');s.className='ticker-item';
+  s.innerHTML=`${t} <span style="color:rgba(0,0,0,.3)">///</span>`;tr.appendChild(s);
+});
+
+/* LIVE COUNTER */
+let cal=1245678;
+function tick(){
+  cal+=Math.floor(Math.random()*7+2);
+  const v=cal.toLocaleString();
+  document.getElementById('calStat').textContent=v;
+  document.getElementById('liveStat').textContent=v;
+}
+setInterval(tick,1100);
+
+/* STREAK */
+const sr=document.getElementById('streakRow');
+for(let i=0;i<30;i++){const d=document.createElement('div');d.className='sdot'+(i<23?' on':'');sr.appendChild(d);}
+
+/* CHAT */
+const replies=['Great input! Updating your plan now. Check the dashboard for your new schedule. 💪',
+  'I\'ve analyzed your biometrics and set your optimal training intensity. 🔥',
+  'Smart! Rest days are as important as training. Recovery sessions locked in. 🧘',
+  'Macros recalibrated to match your new training volume. Fuel up! 🥗',
+  'Progressive overload starts next week — you\'re going to feel the difference. ⚡'];
+function sendMsg(){
+  const inp=document.getElementById('cinp');const v=inp.value.trim();if(!v)return;
+  const msgs=document.getElementById('cmsgs');
+  const u=document.createElement('div');u.className='msg msg-u';u.textContent=v;
+  msgs.appendChild(u);inp.value='';msgs.scrollTop=msgs.scrollHeight;
+  setTimeout(()=>{
+    const b=document.createElement('div');b.className='msg msg-b';
+    b.textContent=replies[Math.floor(Math.random()*replies.length)];
+    msgs.appendChild(b);msgs.scrollTop=msgs.scrollHeight;
+  },800);
+}
+document.getElementById('cinp').addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg();});
+
+/* SCROLL REVEAL */
+document.querySelectorAll('.rev').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('vis');},{threshold:.08}).observe(el);
+});
+</script>
+</body>
+</html>
